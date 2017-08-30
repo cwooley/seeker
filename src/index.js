@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import App from './App';
 import reducers from './reducers';
+import 'semantic-ui-css/semantic.min.css';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
