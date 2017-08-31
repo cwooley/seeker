@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchJWT, fetchUserData} from './actions/users.js'
+import { Grid } from 'semantic-ui-react'
+import CompaniesList from './containers/CompaniesList'
+import ActiveCompany from './containers/ActiveCompany'
+
 
 class App extends Component {
 
@@ -36,10 +40,21 @@ class App extends Component {
   render() {
     console.log('STATE:', this.props.state)
     return (
-      <div >
-
-          Woo
-
+      <div>
+        <Grid >
+          <Grid.Row >
+            <Grid.Column width="2">
+            </Grid.Column>
+            <Grid.Column width="4" color="green">
+              <CompaniesList />
+            </Grid.Column>
+            <Grid.Column width="8" color="blue">
+              <ActiveCompany />
+            </Grid.Column>
+            <Grid.Column width="2">
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
