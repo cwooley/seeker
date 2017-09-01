@@ -11,7 +11,8 @@ export default function (state = {user: {companies: []}}, action){
     case "MAKE_NEW_COMPANY":
       newState = {...state}
       let newCompanies = [...state.companies]
-      newCompanies.push(action.payload.data)
+      let newCompany = {...action.payload.data, contacts: [], interactions: [] }
+      newCompanies.push(newCompany)
       newState.companies = newCompanies
       return newState
     default:
