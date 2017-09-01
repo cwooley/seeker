@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Contact from './Contact'
+import React, { Component } from 'react';
+import Contact from './Contact';
+import { Button, Image, List } from 'semantic-ui-react';
 
 export default class ContactsList extends Component {
   makeContacts = () => {
@@ -10,9 +11,9 @@ export default class ContactsList extends Component {
   render(){
     console.log('Contact List Props', this.props)
     return (
-      <div>
+      <List divided verticalAlign='middle'>
         {this.makeContacts()}
-      </div>
+      </List>
     )
   }
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Feed, Icon, Item, Label, Header, Grid } from 'semantic-ui-react'
 import Interaction from '../components/Interaction'
 import ContactsList from '../components/ContactsList'
-
+import ActionPane from './ActionsPane'
 class ActiveCompany extends Component {
 
   makeInteractionFeed(){
@@ -24,6 +24,7 @@ class ActiveCompany extends Component {
     console.log('props', this.props)
     return (
       <div className="ActiveCompany">
+        { this.props.activeCompany.id &&
         <Grid>
           <Grid.Row>
             <Item.Group divided >
@@ -48,7 +49,13 @@ class ActiveCompany extends Component {
               <ContactsList  contacts={this.props.activeCompany.contacts}/>
             </Grid.Column>
           </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width="16" >
+              <ActionPane />
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
+      }
       </div>
     )
   }

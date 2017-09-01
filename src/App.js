@@ -59,7 +59,6 @@ class App extends Component {
             </Grid.Column>
             <Grid.Column width="8" >
               <ActiveCompany />
-              <ActionPane />
             </Grid.Column>
             <Grid.Column width="2" color="blue">
             </Grid.Column>
