@@ -19,7 +19,7 @@ class CompanyList extends Component {
 
   newCompanyClicked = () => {
     this.props.makeNewCompany(this.state.term)
-    //this.setState({ term: '' })
+    this.setState({ term: '' })
   }
 
   makeCompanies(){

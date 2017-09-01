@@ -5,8 +5,8 @@ import { fetchJWT, fetchUserData} from './actions/users.js'
 import { Grid } from 'semantic-ui-react'
 import CompaniesList from './containers/CompaniesList'
 import ActiveCompany from './containers/ActiveCompany'
-
-
+import NavBar from './components/NavBar'
+import ActionPane from './containers/ActionsPane'
 class App extends Component {
 
   componentDidMount(){
@@ -43,15 +43,25 @@ class App extends Component {
       <div>
         <Grid >
           <Grid.Row >
-            <Grid.Column width="2">
+            <Grid.Column width="2" color="blue">
             </Grid.Column>
-            <Grid.Column width="4" color="green">
+            <Grid.Column width="12" color="black">
+              <NavBar />
+            </Grid.Column>
+            <Grid.Column width="2" color="blue">
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row className="bigRow">
+            <Grid.Column width="2" color="blue">
+            </Grid.Column>
+            <Grid.Column width="4" >
               <CompaniesList />
             </Grid.Column>
-            <Grid.Column width="8" color="blue">
+            <Grid.Column width="8" >
               <ActiveCompany />
+              <ActionPane />
             </Grid.Column>
-            <Grid.Column width="2">
+            <Grid.Column width="2" color="blue">
             </Grid.Column>
           </Grid.Row>
         </Grid>

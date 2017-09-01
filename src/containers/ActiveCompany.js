@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Feed, Icon, Item, Label, Header } from 'semantic-ui-react'
+import { Feed, Icon, Item, Label, Header, Grid } from 'semantic-ui-react'
 import Interaction from '../components/Interaction'
+import ContactsList from '../components/ContactsList'
 
 class ActiveCompany extends Component {
 
@@ -23,20 +24,31 @@ class ActiveCompany extends Component {
     console.log('props', this.props)
     return (
       <div className="ActiveCompany">
-        <Item.Group divided >
-          <Item>
-            <Item.Image src={this.getLogoUrl()} />
-            <Header size='huge'>{this.props.activeCompany.name}</Header>
-            <Item.Content>
-              <Item.Description></Item.Description>
-              <Item.Extra>
-              </Item.Extra>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-        <Feed>
-          {this.makeInteractionFeed()}
-        </Feed>
+        <Grid>
+          <Grid.Row>
+            <Item.Group divided >
+              <Item>
+                <Item.Image src={this.getLogoUrl()} />
+                <Header size='huge'>{this.props.activeCompany.name}</Header>
+                <Item.Content>
+                  <Item.Description></Item.Description>
+                  <Item.Extra>
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width="8" >
+              <Feed>
+                {this.makeInteractionFeed()}
+              </Feed>
+            </Grid.Column>
+            <Grid.Column width="8" >
+              <ContactsList  contacts={this.props.activeCompany.contacts}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     )
   }

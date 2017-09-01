@@ -1,4 +1,4 @@
-export default function (state = {activeCompany: {interactions: []}}, action){
+export default function (state = {activeCompany: {interactions: [], contacts: []}}, action){
   let newState
   switch (action.type) {
     case "SET_ACTIVE_COMPANY":
@@ -6,10 +6,20 @@ export default function (state = {activeCompany: {interactions: []}}, action){
       newState.activeCompany = action.payload
       return newState
     case "MAKE_NEW_COMPANY":
-      console.log("PAYLOAD", action.payload)
       newState = {...state }
       let newActiveCompany = {...action.payload.data, interactions: [], contacts: []}
       newState.activeCompany = newActiveCompany
+      return newState
+    case "ADD_CONTACT":
+      // let newContacts = [state.]
+      newState = Object.assign({}, state);
+      newState.activeCompany = Object.assign({},state.activeCompany)
+      newState.activeCompany.contacts = [...newState.activeCompany.contacts, action.payload.data]
+      return newState
+    case "ADD_INTERACTION":
+      newState = Object.assign({}, state);
+      newState.activeCompany = Object.assign({},state.activeCompany)
+      newState.activeCompany.interactions = [...newState.activeCompany.interactions, action.payload.data]
       return newState
     default:
   }
