@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import Main from './pages/Main'
 import Login from './pages/Login'
+import Profile from './pages/Profile'
+
 
 export default class Routes extends React.Component{
    render(){
@@ -17,6 +19,7 @@ export default class Routes extends React.Component{
                 )
               )} />
             <Route path="/main" render={() => <Main />} />
+            <Route path="/profile" render={() => <Profile />} />
          </div>
        </Router>
      )
