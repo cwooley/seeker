@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setActiveCompany } from '../actions/companies.js'
 import { Image, Item, Label } from 'semantic-ui-react';
+import ReactTimeAgo from 'react-time-ago'
+import javascriptTimeAgo from 'javascript-time-ago'
+javascriptTimeAgo.locale(require('javascript-time-ago/locales/en'))
+require('javascript-time-ago/intl-messageformat-global')
+require('intl-messageformat/dist/locale-data/en')
 
 class Company extends Component {
 
@@ -17,6 +22,19 @@ class Company extends Component {
   )
     return url
   }
+
+  makeLastContact(){
+    if (this.props.company.interactions){
+      let length = this.props.company.interactions.length
+      if (length === 0 ){
+        return 'never'
+      }
+      let lastContactDate = Date.parse(this.props.company.interactions[length-1].created_at)
+      console.log('lastContactDate', lastContactDate)
+      return <ReactTimeAgo locale="en-GB" >{lastContactDate}</ReactTimeAgo>
+    }
+  }
+
 
   setActiveCompany = () => {
     console.log("Logo Clicked.")
@@ -32,7 +50,7 @@ class Company extends Component {
       <Item.Content>
         <Item.Header >{this.props.company.name}</Item.Header>
         <Item.Meta>
-          <span >Last contact two weeks ago.</span>
+          <span >Last contact: {this.makeLastContact()}</span>
         </Item.Meta>
         <Item.Description></Item.Description>
         <Item.Extra>
