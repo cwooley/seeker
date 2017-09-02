@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addContact, addInteraction } from '../actions/companies.js'
-import { Input, Menu, Segment, Button, Dropdown, TextArea, Radio } from 'semantic-ui-react'
+import { Input, Menu, Segment, Button, TextArea, Radio } from 'semantic-ui-react'
 import '../app.css'
 
 class ActionPane extends Component{
@@ -88,7 +88,6 @@ class ActionPane extends Component{
         </div>
       )
     } else if (this.state.activeItem === 'Interactions') {
-      const options = [ {key: 1, text: 'Application', value: 1}, {key: 2, text: 'Follow-up', value: 2}, {key: 3, text: 'Interview', value: 3} ]
       return (
         <div>
           <Radio label='Application' name='radioGroup' value='Application' checked={this.state.interactionType === 'Application'} onChange={this.radioChanged} />

@@ -18,7 +18,7 @@ class CompanyList extends Component {
   }
 
   newCompanyClicked = () => {
-    if (this.state.term != ''){
+    if (this.state.term !== ''){
     this.props.makeNewCompany(this.state.term)
     this.setState({ term: '' })
   }

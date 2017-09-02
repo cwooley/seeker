@@ -18,7 +18,7 @@ export default class Interaction extends Component {
     return(
       <Feed.Event>
             <Feed.Label>
-              <img src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png' />
+              <img src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png' alt='' />
             </Feed.Label>
             <Feed.Content>
               <Feed.Summary>

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setActiveCompany } from '../actions/companies.js'
-import { Image, Item, Label } from 'semantic-ui-react';
+import { Item, Label } from 'semantic-ui-react';
 import ReactTimeAgo from 'react-time-ago'
 import javascriptTimeAgo from 'javascript-time-ago'
 javascriptTimeAgo.locale(require('javascript-time-ago/locales/en'))

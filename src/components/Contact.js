@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { Button, Image, List } from 'semantic-ui-react'
-import md5 from 'js-md5'
-
 
 export default class Contact extends Component {
   render(){

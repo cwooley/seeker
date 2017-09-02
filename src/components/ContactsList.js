@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './Contact';
-import { Button, Image, List } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 
 export default class ContactsList extends Component {
   makeContacts = () => {

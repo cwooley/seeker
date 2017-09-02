@@ -6,7 +6,6 @@ import { Grid } from 'semantic-ui-react'
 import CompaniesList from '../containers/CompaniesList'
 import ActiveCompany from '../containers/ActiveCompany'
 import NavBar from '../components/NavBar'
-import ActionPane from '../containers/ActionsPane'
 class Main extends Component {
 
   componentDidMount(){

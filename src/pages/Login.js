@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Grid, Input, Menu, Segment, Button, Dropdown, TextArea, Radio } from 'semantic-ui-react'
+import { Grid, Input, Menu, Segment, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchJWT, fetchUserData, createNewUser } from '../actions/users.js'
