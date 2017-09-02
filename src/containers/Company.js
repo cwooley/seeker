@@ -7,8 +7,9 @@ import { Image, Item, Label } from 'semantic-ui-react';
 class Company extends Component {
 
   getLogoUrl(){
-    //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
     let url = `http://logo.clearbit.com/${this.props.company.name}.com`
+    //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
+    
     return url
   }
 
