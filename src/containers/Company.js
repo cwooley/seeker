@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setActiveCompany } from '../actions/companies.js'
@@ -9,7 +10,11 @@ class Company extends Component {
   getLogoUrl(){
     let url = `http://logo.clearbit.com/${this.props.company.name}.com`
     //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
-    
+    axios.get(url).catch((err) => {
+      console.log("Axios get failed.")
+      return 'https://images.freecreatives.com/wp-content/uploads/2015/04/logo033.png'
+    }
+  )
     return url
   }
 
@@ -23,7 +28,7 @@ class Company extends Component {
   render(){
     return(
       <Item>
-      <Item.Image src={this.getLogoUrl()} onClick={this.setActiveCompany}/>
+        <Item.Image src={this.getLogoUrl()} alt="company_logo" onClick={this.setActiveCompany}/>
       <Item.Content>
         <Item.Header >{this.props.company.name}</Item.Header>
         <Item.Meta>
