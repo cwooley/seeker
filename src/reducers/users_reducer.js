@@ -33,6 +33,7 @@ export default function (state = {user: {companies: []}}, action){
         }
       console.log("USER AND JWT UPON SIGNUP IS", action.payload.data)
       return action.payload.data[1]
+      
     default:
   }
   return state;
