@@ -11,7 +11,6 @@ export default function (state = {activeCompany: {interactions: [], contacts: []
       newState.activeCompany = newActiveCompany
       return newState
     case "ADD_CONTACT":
-      // let newContacts = [state.]
       newState = Object.assign({}, state);
       newState.activeCompany = Object.assign({},state.activeCompany)
       newState.activeCompany.contacts = [...newState.activeCompany.contacts, action.payload.data]

@@ -46,12 +46,28 @@ class ActionPane extends Component{
   contactBtnClicked = () => {
     let info = {...this.state}
     info.company_id = this.props.activeCompany.id
+    this.setState({
+              interactionType: '',
+              interactionStatus: '',
+              contactName: '',
+              contactPhone: '',
+              contactEmail: '',
+              contactPosition: ''
+              })
     this.props.addContact(info)
   }
 
   interactionBtnClicked = () => {
     let info = {...this.state}
     info.company_id = this.props.activeCompany.id
+    this.setState({
+              interactionType: '',
+              interactionStatus: '',
+              contactName: '',
+              contactPhone: '',
+              contactEmail: '',
+              contactPosition: ''
+              })
     this.props.addInteraction(info)
   }
 
