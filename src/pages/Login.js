@@ -46,9 +46,9 @@ class Login extends Component {
     if (this.state.activeItem === 'Login'){
       return (
         <div>
-          <Input onChange={this.usernameChanged} fluid label='username' value={this.state.username} placeholder='username' />
+          <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
           <br />
-          <Input onChange={this.passwordChanged}  fluid label='password' value={this.state.password} placeholder='password' />
+          <Input onChange={this.passwordChanged}  fluid label='Password' type="password" value={this.state.password} placeholder='password' />
           <br />
             <center><Button color='purple' onClick={this.loginBtnClicked.bind(this)} >Login</Button></center>
         </div>
@@ -56,13 +56,13 @@ class Login extends Component {
     } else if (this.state.activeItem === 'SignUp'){
       return (
         <div>
-          <Input onChange={this.usernameChanged} fluid label='username' value={this.state.username} placeholder='username' />
+          <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
           <br />
-          <Input onChange={this.passwordChanged} fluid label='password' value={this.state.password} placeholder='password' />
+          <Input onChange={this.passwordChanged} fluid label='Password' type='password' value={this.state.password} placeholder='password' />
           <br />
-          <Input onChange={this.emailChanged} fluid label='email' value={this.state.email} placeholder='email' />
+          <Input onChange={this.emailChanged} fluid label='Email' value={this.state.email} placeholder='email' />
           <br />
-          <Input onChange={this.profileImageChanged} fluid label='profile image url' value={this.state.profileImage} placeholder='profileImage' />
+          <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
           <br />
             <center><Button color='purple' onClick={this.signUpBtnClicked.bind(this)} >Sign Up</Button></center>
         </div>
@@ -75,12 +75,12 @@ class Login extends Component {
   render(){
     const { activeItem } = this.state
     return(
-      <Grid>
+      <Grid className="myGrid">
         <Grid.Column width='2' floated='left' color='blue' >
 
         </Grid.Column>
         <Grid.Column width='4'>
-          <Menu attached='top' tabular>
+          <Menu attached='top' tabular className="loginForm">
             <Menu.Item name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />
             <Menu.Item name='SignUp' active={activeItem === 'SignUp'} onClick={this.handleItemClick} />
           </Menu>

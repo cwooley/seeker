@@ -1,14 +1,12 @@
 import React, { Component} from 'react';
 import { Menu, Segment } from 'semantic-ui-react'
-
+import {Link} from 'react-router-dom'
 
 export default class NavBar extends Component {
   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name })
-    window.location = `http://localhost:3001/${name}`
-        }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
 
 
   render() {
@@ -18,8 +16,8 @@ export default class NavBar extends Component {
 
         <Segment inverted   className="navBar">
           <Menu inverted secondary  className="navBar">
-            <Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick} />
-            <Menu.Item name='main' active={activeItem === 'main'} onClick={this.handleItemClick} />
+            <Link to={`/main`} ><Menu.Item name='main' active={activeItem === 'main'} onClick={this.handleItemClick} /></Link>
+            <Link to={`/profile`} >  <Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick} /></Link>
           </Menu>
         </Segment>
 

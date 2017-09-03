@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUserData, editUser } from '../actions/users.js'
-import {Input, Button } from 'semantic-ui-react';''
+import {Input, Button, Form } from 'semantic-ui-react';''
 
 
 
@@ -29,6 +29,13 @@ class EditUserForm extends Component{
         profileImage:this.props.user.profile_image_url,
         id: this.props.user.id
       })})
+    } else{
+      this.setState({
+      username:this.props.user.username,
+      email:this.props.user.email,
+      profileImage:this.props.user.profile_image_url,
+      id: this.props.user.id
+    })
     }
   }
 
@@ -55,15 +62,17 @@ class EditUserForm extends Component{
   render(){
     return (
       <div className="editForm">
-        <Input onChange={this.usernameChanged} fluid label='username' value={this.state.username} placeholder='username' />
-        <br />
-        <Input onChange={this.passwordChanged} fluid label='password' value={this.state.password} placeholder='password' />
-        <br />
-        <Input onChange={this.emailChanged} fluid label='email' value={this.state.email} placeholder='email' />
-        <br />
-        <Input onChange={this.profileImageChanged} fluid label='profile image url' value={this.state.profileImage} placeholder='profileImage' />
-        <br />
-          <center><Button color='purple' onClick={this.editBtnClicked.bind(this)} >Edit Profile</Button></center>
+        <Form>
+          <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
+          <br />
+          <Input  onChange={this.passwordChanged} fluid label='Password' type='password' value={this.state.password} placeholder='password' />
+          <br />
+          <Input onChange={this.emailChanged} fluid label='Email' value={this.state.email} placeholder='email' />
+          <br />
+          <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
+          <br />
+            <center><Button color='purple' onClick={this.editBtnClicked.bind(this)} >Edit Profile</Button></center>
+        </Form>
       </div>
     )
   }

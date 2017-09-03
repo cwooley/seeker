@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { fetchJWT, fetchUserData} from '../actions/users.js'
-import { Grid } from 'semantic-ui-react'
-import CompaniesList from '../containers/CompaniesList'
-import ActiveCompany from '../containers/ActiveCompany'
-import NavBar from '../components/NavBar'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchJWT, fetchUserData} from '../actions/users.js';
+import { Grid } from 'semantic-ui-react';
+import CompaniesList from '../containers/CompaniesList';
+import ActiveCompany from '../containers/ActiveCompany';
+import NavBar from '../components/NavBar';
+
 class Main extends Component {
 
   componentDidMount(){
     if (!localStorage.jwt){
-      this.props.fetchJWT()
-    } else {
+      window.location = 'http://localhost:3001/'
+    } else if (!this.props.user) {
       //get user data and put it into redux store... also set up redux you lazy sack of shit!
-      console.log('jwt:', localStorage.jwt)
       this.props.fetchUserData()
+      console.log('PROPS FOR MAIN', this.props)
     }
-  }
-
-  getJWT = () => {
-
   }
 
   render() {

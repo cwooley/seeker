@@ -8,11 +8,12 @@ export default function (state = {user: {companies: []}}, action){
   switch (action.type) {
     case "INITIAL_API_HIT":
       console.log('hit  block and setting state with this data', action.payload.data)
-      if(action.payload.data.jwt){
-        localStorage.setItem('jwt', action.payload.data.jwt)
+      if(action.payload.data[0].jwt){
+        localStorage.setItem('jwt', action.payload.data[0].jwt)
         window.location = 'http://localhost:3001/main'
       }
-      return state
+      let userObj = JSON.parse(action.payload.data[1])
+      return userObj
 
     case "GET_USER_DATA":
       console.log('hit GET_USER_DATA block and setting state with this data', action.payload.data)

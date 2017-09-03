@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { Item, Progress, Statistic, Button } from 'semantic-ui-react'
-import { bindActionCreators } from 'redux'
-import { fetchJWT, fetchUserData} from '../actions/users.js'
+import { connect } from 'react-redux';
+import { Item, Progress, Statistic, Button } from 'semantic-ui-react';
+import { bindActionCreators } from 'redux';
+import { fetchJWT, fetchUserData} from '../actions/users.js';
+import {Link} from 'react-router-dom';
+
 
 class UserProfile extends Component{
 
@@ -62,9 +64,6 @@ class UserProfile extends Component{
 
   }
 
-  editBtnClicked = () =>{
-    window.location = 'http://localhost:3001/edit'
-  }
   render(){
     console.log(this.props.user)
     return (
@@ -78,18 +77,17 @@ class UserProfile extends Component{
                 <p>{this.props.user.email}</p>
               </Item.Description>
             <br />
-              <p><Button content='Edit' color="purple" icon='edit' labelPosition='left' onClick={this.editBtnClicked}/></p>
+              <Link to={`/edit`}><Button content='Edit' color="purple" icon='edit' labelPosition='left' onClick={this.editBtnClicked}/></Link>
             </Item.Content>
           </Item>
         </Item.Group>
         <h3>Daily Application Goal: 5 </h3>
-        <Progress percent={this.getDailyProgressPercent()} color='green' />
-        <Statistic.Group>
-          <Statistic label='Companies' value={this.getNumCompanies()} />
-          <Statistic label='Applications' value={this.getNumApplications()} />
-          <Statistic label='Interviews' value={this.getNumInterviews()} />
-        </Statistic.Group>
-
+        <Progress percent={this.getDailyProgressPercent()} color='green' indicating />
+          <Statistic.Group>
+            <Statistic label='Companies' value={this.getNumCompanies()} />
+            <Statistic label='Applications' value={this.getNumApplications()} />
+            <Statistic label='Interviews' value={this.getNumInterviews()} />
+          </Statistic.Group>
       </div>
     )
   }

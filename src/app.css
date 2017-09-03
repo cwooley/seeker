@@ -59,6 +59,10 @@ html, body {
   padding-top: 40px;
 }
 
+.loginForm{
+  padding-top: 40px;
+}
+
 .navBar{
   float: left!important;
   height: 40px;
