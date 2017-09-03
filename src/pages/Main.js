@@ -25,7 +25,7 @@ class Main extends Component {
   render() {
     console.log('STATE:', this.props.state)
     return (
-      <div>
+      <div >
         <Grid className="myGrid" >
           <Grid.Row>
             <Grid.Column width="2" color="blue">

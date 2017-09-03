@@ -58,3 +58,8 @@ html, body {
 .editForm{
   padding-top: 40px;
 }
+
+.navBar{
+  float: left!important;
+  height: 40px;
+}
