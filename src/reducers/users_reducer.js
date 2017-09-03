@@ -27,6 +27,12 @@ export default function (state = {user: {companies: []}}, action){
       newState.companies = newCompanies
       return newState
 
+    case "DELETE_COMPANY":
+      newState = {...state}
+      newCompanies = state.companies.filter(company => company.id != action.payload.data.id)
+      newState.companies = newCompanies
+      return newState
+
     case "CREATE_NEW_USER":
       console.log("STATE AFTER CREATED USER", newState)
         if(action.payload.data[0].jwt){
@@ -46,6 +52,8 @@ export default function (state = {user: {companies: []}}, action){
       // console.log(newCompany)
       // newCompany.interactions.push(action.payload.data)
       return state
+
+
     default:
   }
   return state;

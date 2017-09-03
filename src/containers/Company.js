@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setActiveCompany } from '../actions/companies.js'
+import { setActiveCompany, deleteCompany } from '../actions/companies.js'
 import { Item, Label } from 'semantic-ui-react';
 import ReactTimeAgo from 'react-time-ago'
 import javascriptTimeAgo from 'javascript-time-ago'
@@ -36,15 +36,16 @@ class Company extends Component {
 
 
   setActiveCompany = () => {
-    console.log("Logo Clicked.")
     this.props.setActiveCompany(this.props.company)
-    console.log(this.props.state)
   }
 
+  trashClicked = () => {
+    this.props.deleteCompany(this.props.company.id)
+  }
 
   render(){
     return(
-      <Item>
+      <Item className='itemActive'>
         <Item.Image src={this.getLogoUrl()} alt="company_logo" onClick={this.setActiveCompany}/>
       <Item.Content>
         <Item.Header >{this.props.company.name}</Item.Header>
@@ -53,7 +54,7 @@ class Company extends Component {
         </Item.Meta>
         <Item.Description></Item.Description>
         <Item.Extra>
-          <Label icon='edit' content='Edit' />
+          <Label icon='trash'content='delete' onClick={this.trashClicked}/>
         </Item.Extra>
       </Item.Content>
     </Item>
@@ -63,7 +64,7 @@ class Company extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ setActiveCompany }, dispatch)
+  return bindActionCreators({ setActiveCompany, deleteCompany }, dispatch)
 }
 
 

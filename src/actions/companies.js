@@ -7,6 +7,17 @@ export function setActiveCompany (company) {
   }
 }
 
+export function deleteCompany (id){
+  let request = axios({
+    method: 'delete',
+    url: `http://localhost:3000/api/v1/companies/${id}`
+  })
+  return {
+    type: "DELETE_COMPANY",
+    payload: request
+  }
+}
+
 export function makeNewCompany (companyName) {
   var FormData = require('form-data');
   var form = new FormData();
