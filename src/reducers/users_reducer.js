@@ -35,13 +35,16 @@ export default function (state = {user: {companies: []}}, action){
       console.log("USER AND JWT UPON SIGNUP IS", action.payload.data)
       return action.payload.data[1]
 
+    case "EDIT_USER":
+    window.location = 'http://localhost:3001/profile'
+    return action.payload.data
 
-      case "ADD_INTERACTION":
-        // newState = {...state}
-        // newCompany = newState.companies.find(company => company.id === action.payload.data.company_id)
-        // console.log(newCompany)
-        // newCompany.interactions.push(action.payload.data)
-        return state
+    case "ADD_INTERACTION":
+      // newState = {...state}
+      // newCompany = newState.companies.find(company => company.id === action.payload.data.company_id)
+      // console.log(newCompany)
+      // newCompany.interactions.push(action.payload.data)
+      return state
     default:
   }
   return state;

@@ -46,3 +46,15 @@ html, body {
   min-height:850px;
   max-height: 850px;
 }
+
+.profileColumns{
+  height: 850px;
+}
+
+.userProfile{
+  padding-top: 40px;
+}
+
+.editForm{
+  padding-top: 40px;
+}

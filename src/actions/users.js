@@ -18,6 +18,25 @@ export function fetchJWT(userData){
   }
 }
 
+export function editUser(userData){
+  var FormData = require('form-data');
+  var form = new FormData();
+  form.append('user[username]', userData.username)
+  form.append('user[password]', userData.password)
+  form.append('user[email]', userData.email)
+  form.append('user[profile_image_url]', userData.profileImage)
+  let request = axios({
+    method: 'put',
+    url: `http://localhost:3000/api/v1/users/${userData.id}`,
+    data: form
+  })
+  return {
+    type: 'EDIT_USER',
+    payload: request
+  }
+}
+
+
 export function createNewUser(userData){
   var FormData = require('form-data');
   var form = new FormData();
