@@ -106,7 +106,7 @@ class ActionPane extends Component{
   render(){
     const { activeItem } = this.state
     return (
-      <div>
+      <div className="actionsPane">
         <Menu attached='top' tabular>
           <Menu.Item name='Contacts' active={activeItem === 'Contacts'} onClick={this.handleItemClick} />
           <Menu.Item name='Interactions' active={activeItem === 'Interactions'} onClick={this.handleItemClick} />

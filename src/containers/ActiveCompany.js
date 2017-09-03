@@ -23,12 +23,12 @@ class ActiveCompany extends Component {
   render(){
     console.log('props', this.props)
     return (
-      <div className="ActiveCompany">
+      <div className="activeCompanyContainer">
         { this.props.activeCompany.id &&
         <Grid>
           <Grid.Row>
             <Item.Group divided >
-              <Item>
+              <Item className="activeCompany">
                 <Item.Image src={this.getLogoUrl()} />
                 <Header size='huge'>{this.props.activeCompany.name}</Header>
                 <Item.Content>
@@ -41,12 +41,12 @@ class ActiveCompany extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width="8" >
-              <Feed>
+              <Feed className="activeCompanyFeed">
                 {this.makeInteractionFeed()}
               </Feed>
             </Grid.Column>
             <Grid.Column width="8" >
-              <ContactsList  contacts={this.props.activeCompany.contacts}/>
+              <ContactsList contacts={this.props.activeCompany.contacts}/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

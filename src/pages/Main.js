@@ -26,8 +26,8 @@ class Main extends Component {
     console.log('STATE:', this.props.state)
     return (
       <div>
-        <Grid >
-          <Grid.Row >
+        <Grid className="myGrid" >
+          <Grid.Row>
             <Grid.Column width="2" color="blue">
             </Grid.Column>
             <Grid.Column width="12" color="black">
@@ -36,7 +36,7 @@ class Main extends Component {
             <Grid.Column width="2" color="blue">
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row className="bigRow">
+          <Grid.Row >
             <Grid.Column width="2" color="blue">
             </Grid.Column>
             <Grid.Column width="4" >
