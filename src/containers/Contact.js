@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import { Button, Image, List } from 'semantic-ui-react'
+import { Button, Image, List, Icon } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {deleteContact} from '../actions/companies.js'
 
-export default class Contact extends Component {
+class Contact extends Component {
+
+  trashClicked = () => {
+    this.props.deleteContact(this.props.contact.id)
+  }
+
+
   render(){
     const baseURL = 'https://www.gravatar.com/avatar/'
     const crypto = require('crypto');
@@ -10,7 +19,7 @@ export default class Contact extends Component {
     return (
       <List.Item>
         <List.Content floated='right'>
-          <Button>Trash</Button>
+          <Icon name='trash' onClick={this.trashClicked} />
         </List.Content>
           <Image avatar src={gravatarURL} />
         <List.Content>
@@ -22,3 +31,8 @@ export default class Contact extends Component {
     )
   }
 }
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ deleteContact }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Contact);

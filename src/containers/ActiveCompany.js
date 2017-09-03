@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Feed, Icon, Item, Label, Header, Grid } from 'semantic-ui-react'
-import Interaction from '../components/Interaction'
+import Interaction from '../containers/Interaction'
 import ContactsList from '../components/ContactsList'
 import ActionPane from './ActionsPane'
 class ActiveCompany extends Component {

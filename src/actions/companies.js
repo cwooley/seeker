@@ -42,6 +42,17 @@ export function addContact (contactInfo) {
   }
 }
 
+export function deleteContact(id){
+  let request = axios({
+    method: 'delete',
+    url: `http://localhost:3000/api/v1/contacts/${id}`
+  })
+  return {
+    type: "DELETE_CONTACT",
+    payload: request
+  }
+}
+
 export function addInteraction (interactionInfo){
   var FormData = require('form-data');
   var form = new FormData();
@@ -56,6 +67,17 @@ export function addInteraction (interactionInfo){
   })
   return {
     type: "ADD_INTERACTION",
+    payload: request
+  }
+}
+
+export function deleteInteraction(id){
+  let request = axios({
+    method: 'delete',
+    url: `http://localhost:3000/api/v1/interactions/${id}`
+  })
+  return {
+    type: "DELETE_INTERACTION",
     payload: request
   }
 }
