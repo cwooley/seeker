@@ -8,10 +8,11 @@ import ActionPane from './ActionsPane'
 class ActiveCompany extends Component {
 
   activeCompany(){
-    if (this.props.activeCompanyId){
-      return this.props.companies.find(company => company.id === this.props.activeCompanyId)
+    if (this.props.companies){
+      if (this.props.activeCompanyId !== 0){
+        return this.props.companies.find(company => company.id === this.props.activeCompanyId)
+      } else return this.props.companies[0]
     }
-
   }
 
   makeInteractionFeed(){
@@ -22,16 +23,8 @@ class ActiveCompany extends Component {
 
   getLogoUrl(){
     //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
-    if(this.props.activeCompanyId){
-      let url = `http://logo.clearbit.com/${this.activeCompany().name}.com`
-      fetch(url)
-      .catch(err => {
-                      console.log("caught url")
-                      url =  'https://image.freepik.com/free-vector/placeholder-logo-template_1061-220.jpg'
-                    })
-      .then(resp =>  console.log("didn't catch")  )
-      return url
-    }
+    console.log(this.activeCompany().name)
+    return `http://logo.clearbit.com/${this.activeCompany().name}.com?size=200`
   }
 
   render(){
@@ -43,13 +36,17 @@ class ActiveCompany extends Component {
           <Grid.Row>
             <Item.Group divided >
               <Item className="activeCompany">
-                <Item.Image src={this.getLogoUrl()} />
-                <Header size='huge'>{this.activeCompany().name}</Header>
-                <Item.Content>
-                  <Item.Description></Item.Description>
-                  <Item.Extra>
-                  </Item.Extra>
-                </Item.Content>
+                <div className="companyImageContainerActive">
+                  <Item.Image src={this.getLogoUrl()} />
+                </div>
+                <div className="activeCompanyContents">
+                  <Header size='huge'>{this.activeCompany().name}</Header>
+                  <Item.Content>
+                    <Item.Description></Item.Description>
+                    <Item.Extra>
+                    </Item.Extra>
+                  </Item.Content>
+                </div>
               </Item>
             </Item.Group>
           </Grid.Row>

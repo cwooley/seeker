@@ -39,10 +39,10 @@ class Company extends Component {
   render(){
     return(
       <Item className='itemActive'>
-        <div className="companyImageContainer">
-          <Item.Image src={this.getLogoUrl()} alt="" onClick={this.setActiveCompany}/>
+        <div className="companyImageContainer" onClick={this.setActiveCompany}>
+          <Item.Image src={this.getLogoUrl()} alt="" />
         </div>
-      <Item.Content>
+      <Item.Content className="companyContents">
         <Item.Header >{this.props.company.name}</Item.Header>
         <Item.Meta>
           <span >Last contact: {this.makeLastContact()}</span>

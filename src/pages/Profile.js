@@ -8,7 +8,7 @@ export default class Login extends Component {
   componentDidMount(){
     if (!localStorage.jwt){
       window.location = 'http://localhost:3001/'
-    } 
+    }
   }
 
   render(){

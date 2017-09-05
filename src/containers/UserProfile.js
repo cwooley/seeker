@@ -83,6 +83,7 @@ class UserProfile extends Component{
         </Item.Group>
         <h3>Daily Application Goal: 5 </h3>
         <Progress percent={this.getDailyProgressPercent()} color='green' indicating />
+        <h3>User Stats:</h3>
           <Statistic.Group>
             <Statistic label='Companies' value={this.getNumCompanies()} />
             <Statistic label='Applications' value={this.getNumApplications()} />

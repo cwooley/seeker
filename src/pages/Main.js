@@ -23,7 +23,7 @@ class Main extends Component {
     console.log('STATE:', this.props.state)
     return (
       <div >
-        <Grid className="myGrid" >
+        <Grid  >
           <Grid.Row>
             <Grid.Column width="2" color="blue">
             </Grid.Column>
