@@ -7,6 +7,10 @@ export default class NavBar extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+  logoutClicked = () => {
+    localStorage.clear();
+    window.location = 'localhost:3001/'
+  }
 
 
   render() {
@@ -18,6 +22,7 @@ export default class NavBar extends Component {
           <Menu inverted secondary  className="navBar">
             <Link to={`/main`} ><Menu.Item name='main' active={activeItem === 'main'} onClick={this.handleItemClick} /></Link>
             <Link to={`/profile`} >  <Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick} /></Link>
+            <Link to={`/`} ><Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.logoutClicked} /></Link>
           </Menu>
         </Segment>
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Grid, Input, Menu, Segment, Button } from 'semantic-ui-react'
+import { Grid, Input, Menu, Segment, Button, Dropdown } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchJWT, fetchUserData, createNewUser } from '../actions/users.js'
@@ -77,7 +77,6 @@ class Login extends Component {
     return(
       <Grid className="myGrid">
         <Grid.Column width='2' floated='left' color='blue' >
-
         </Grid.Column>
         <Grid.Column width='4'>
           <Menu attached='top' tabular className="loginForm">
@@ -89,7 +88,6 @@ class Login extends Component {
           </Segment>
         </Grid.Column>
         <Grid.Column width='2' floated='right' color='blue'>
-
         </Grid.Column>
       </Grid>
     )

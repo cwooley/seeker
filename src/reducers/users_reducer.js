@@ -11,9 +11,13 @@ export default function (state = {user: {companies: []}}, action){
       if(action.payload.data[0].jwt){
         localStorage.setItem('jwt', action.payload.data[0].jwt)
         window.location = 'http://localhost:3001/main'
+        let userObj = JSON.parse(action.payload.data[1])
+        return userObj
       }
-      let userObj = JSON.parse(action.payload.data[1])
-      return userObj
+      else{
+        return state
+      }
+
 
     case "GET_USER_DATA":
       console.log('hit GET_USER_DATA block and setting state with this data', action.payload.data)

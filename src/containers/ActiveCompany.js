@@ -16,6 +16,12 @@ class ActiveCompany extends Component {
     //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
     if(this.props.activeCompany){
       let url = `http://logo.clearbit.com/${this.props.activeCompany.name}.com`
+      fetch(url)
+      .catch(err => {
+                      console.log("caught url")
+                      url =  'https://image.freepik.com/free-vector/placeholder-logo-template_1061-220.jpg'
+                    })
+      .then(resp =>  console.log("didn't catch")  )
       return url
     }
   }
