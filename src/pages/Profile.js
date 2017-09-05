@@ -16,12 +16,12 @@ export default class Login extends Component {
       <div>
         <Grid >
           <Grid.Row>
-            <Grid.Column width="2" color="violet">
+            <Grid.Column width="2" color="purple">
             </Grid.Column>
-            <Grid.Column width="12" color="violet">
+            <Grid.Column width="12" color="purple">
               <NavBar />
             </Grid.Column>
-            <Grid.Column width="2" color="violet">
+            <Grid.Column width="2" color="purple">
             </Grid.Column>
           </Grid.Row>
           <Grid.Row color="black">
