@@ -17,8 +17,6 @@ export default function (state = {user: {companies: []}}, action){
       else{
         return state
       }
-
-
     case "GET_USER_DATA":
       console.log('hit GET_USER_DATA block and setting state with this data', action.payload.data)
       return action.payload.data
@@ -51,11 +49,26 @@ export default function (state = {user: {companies: []}}, action){
     return action.payload.data
 
     case "ADD_INTERACTION":
-      // newState = {...state}
-      // newCompany = newState.companies.find(company => company.id === action.payload.data.company_id)
-      // console.log(newCompany)
-      // newCompany.interactions.push(action.payload.data)
-      return state
+      newCompanies = [...state.companies]
+      newCompany = newCompanies.find(company => company.id === action.payload.data.company_id)
+      newCompany.interactions = [...newCompany.interactions, action.payload.data]
+      return Object.assign({}, state, { companies: newCompanies})
+    case "DELETE_INTERACTION":
+      newCompanies = [...state.companies]
+      newCompany = newCompanies.find(company => company.id === action.payload.data.company_id)
+      newCompany.interactions = newCompany.interactions.filter(interaction => interaction.id !== action.payload.data.id)
+      return Object.assign({}, state, { companies: newCompanies})
+
+    case "ADD_CONTACT":
+      newCompanies = [...state.companies]
+      let newCompany = newCompanies.find(company => company.id === action.payload.data.company_id)
+      newCompany.contacts = [...newCompany.contacts, action.payload.data]
+      return Object.assign({}, state, { companies: newCompanies})
+    case "DELETE_CONTACT":
+      newCompanies = [...state.companies]
+      newCompany = newCompanies.find(company => company.id === action.payload.data.company_id)
+      newCompany.contacts = newCompany.contacts.filter(contact => contact.id !== action.payload.data.id)
+      return Object.assign({}, state, { companies: newCompanies})
 
 
     default:

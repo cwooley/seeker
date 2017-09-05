@@ -45,7 +45,7 @@ class ActionPane extends Component{
 
   contactBtnClicked = () => {
     let info = {...this.state}
-    info.company_id = this.props.activeCompany.id
+    info.company_id = this.props.activeCompanyId
     this.setState({
               interactionType: '',
               interactionStatus: '',
@@ -59,7 +59,7 @@ class ActionPane extends Component{
 
   interactionBtnClicked = () => {
     let info = {...this.state}
-    info.company_id = this.props.activeCompany.id
+    info.company_id = this.props.activeCompanyId
     this.setState({
               interactionType: '',
               interactionStatus: '',
@@ -120,7 +120,7 @@ class ActionPane extends Component{
 }
 
 let mapStateToProps = (state) => {
-  return ({activeCompany: state.company.activeCompany})
+  return ({activeCompanyId: state.company.id})
 }
 
 const mapDispatchToProps = (dispatch) => {

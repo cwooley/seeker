@@ -36,7 +36,7 @@ class Company extends Component {
 
 
   setActiveCompany = () => {
-    this.props.setActiveCompany(this.props.company)
+    this.props.setActiveCompany(this.props.company.id)
   }
 
   trashClicked = () => {
