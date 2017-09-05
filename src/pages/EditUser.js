@@ -5,6 +5,15 @@ import NavBar from '../components/NavBar';
 
 export default class Login extends Component {
 
+  componentDidMount(){
+    if (!localStorage.jwt){
+      window.location = 'http://localhost:3001/'
+    } else if (!this.props.user) {
+      this.props.fetchUserData()
+      console.log('PROPS FOR MAIN', this.props)
+    }
+  }
+
   render(){
     return (
       <div>
