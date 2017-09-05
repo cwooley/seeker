@@ -12,7 +12,8 @@ class Login extends Component {
     password: '',
     email: '',
     profileImage: '',
-    errors: false
+    errors: false,
+    loginFail: false
   }
 
   componentDidMount(){
@@ -70,6 +71,10 @@ class Login extends Component {
     return !re.test(this.state.email);
   }
 
+  loginErrors = () => {
+    if (this.props.loginFail) return <Message error header='Username or password incorrect'/>
+  }
+
 
 
   profileImageChanged = (event) => {
@@ -113,7 +118,7 @@ class Login extends Component {
         <Grid.Column width='2' floated='left' color='blue' >
         </Grid.Column>
         <Grid.Column width='4'>
-          {this.displayError()}
+          <div className="errorsContainer">{this.displayError()}{this.loginErrors()}</div>
           <Menu attached='top' tabular className="loginForm">
             <Menu.Item name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />
             <Menu.Item name='SignUp' active={activeItem === 'SignUp'} onClick={this.handleItemClick} />
@@ -134,6 +139,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return state
+  return {loginFail: state.user.loginFail}
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -82,3 +82,8 @@ html, body {
   background-size: 100% 100%;
   padding-right: 30px!important;
 }
+
+.errorsContainer{
+  height:200px;
+  padding-top: 40px
+}
