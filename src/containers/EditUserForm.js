@@ -14,6 +14,7 @@ class EditUserForm extends Component{
     email:'',
     profileImage:'',
     id: '',
+    dailyGoal: '',
     errors: false
   }
 
@@ -77,6 +78,14 @@ class EditUserForm extends Component{
     }
   }
 
+  dailyGoalChanged = (event) => {
+    this.setState({dailyGoal: event.target.value})
+  }
+  
+  dailyGoalError = () => {
+    return !(parseInt(this.state.dailyGoal, 10) > 0 && parseInt(this.state.dailyGoal, 10) < 21)
+  }
+
   displayError(){
     let errList = []
     if (this.usernameError()){
@@ -87,6 +96,9 @@ class EditUserForm extends Component{
     }
     if (this.emailError()){
       errList.push("must be valid email")
+    }
+    if (this.dailyGoalError()){
+      errList.push("Daily goal must be a number between 1 and 20")
     }
     if (this.state.errors && errList.length > 0 ) return  <Message error header='There was some errors with your submission' list={errList} />
 
@@ -104,6 +116,8 @@ class EditUserForm extends Component{
           <Input onChange={this.emailChanged} fluid label='Email' value={this.state.email} placeholder='email' />
           <br />
           <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
+          <br />
+          <Input onChange={this.dailyGoalChanged} error={this.dailyGoalError()} fluid label='Profile Image Url' value={this.state.dailyGoal} placeholder='1 - 20' />
           <br />
             <center><Button color='purple' onClick={this.editBtnClicked.bind(this)} >Edit Profile</Button></center>
         </Form>

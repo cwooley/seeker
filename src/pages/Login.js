@@ -12,6 +12,7 @@ class Login extends Component {
     password: '',
     email: '',
     profileImage: '',
+    dailyGoal: '5',
     errors: false,
     loginFail: false
   }
@@ -42,6 +43,9 @@ class Login extends Component {
     }
     if (this.emailError()){
       errList.push("must be valid email")
+    }
+    if (this.dailyGoalError()){
+      errList.push("Daily goal must be a number between 1 and 20")
     }
     if (this.state.errors && errList.length > 0 ) return  <Message error header='There was some errors with your submission' list={errList} />
 
@@ -75,7 +79,13 @@ class Login extends Component {
     if (this.props.loginFail) return <Message error header='Username or password incorrect'/>
   }
 
+  dailyGoalChanged = (event) => {
+    this.setState({dailyGoal: event.target.value})
+  }
 
+  dailyGoalError = () => {
+    return !(parseInt(this.state.dailyGoal, 10) > 0 && parseInt(this.state.dailyGoal, 10) < 21)
+  }
 
   profileImageChanged = (event) => {
     this.setState({ profileImage: event.target.value })
@@ -102,6 +112,8 @@ class Login extends Component {
           <Input onChange={this.emailChanged} fluid label='Email' error={this.emailError()} value={this.state.email} placeholder='email' />
           <br />
           <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
+          <br />
+          <Input onChange={this.dailyGoalChanged} error={this.dailyGoalError()} fluid label='Profile Image Url' value={this.state.dailyGoal} placeholder='1 - 20' />
           <br />
             <center><Button color='purple' onClick={this.signUpBtnClicked.bind(this)} >Sign Up</Button></center>
         </div>
