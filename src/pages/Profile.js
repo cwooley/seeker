@@ -18,21 +18,21 @@ export default class Login extends Component {
           <Grid.Row>
             <Grid.Column width="2" color="violet">
             </Grid.Column>
-            <Grid.Column width="12" color="black">
+            <Grid.Column width="12" color="violet">
               <NavBar />
             </Grid.Column>
             <Grid.Column width="2" color="violet">
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width='2' floated='left' color='violet' className="profileColumns" >
+          <Grid.Row color="black">
+            <Grid.Column width='2' floated='left'  className="profileColumns" >
             </Grid.Column>
 
-            <Grid.Column width='4' className="profileColumns" >
+            <Grid.Column width='4' className="profileColumns" color="black" >
               <UserProfile />
             </Grid.Column>
 
-            <Grid.Column width='2' floated='right' color='violet' className="profileColumns" >
+            <Grid.Column width='2' floated='right' color='#fff' className="profileColumns" >
             </Grid.Column>
           </Grid.Row>
         </Grid>
