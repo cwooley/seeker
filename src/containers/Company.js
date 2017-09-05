@@ -13,14 +13,7 @@ require('intl-messageformat/dist/locale-data/en')
 class Company extends Component {
 
   getLogoUrl(){
-    let url = `http://logo.clearbit.com/${this.props.company.name}.com`
-    //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
-    axios.get(url).catch((err) => {
-      console.log("Axios get failed.")
-      return 'https://images.freecreatives.com/wp-content/uploads/2015/04/logo033.png'
-    }
-  )
-    return url
+    return `http://logo.clearbit.com/${this.props.company.name}.com`
   }
 
   makeLastContact(){
@@ -46,7 +39,9 @@ class Company extends Component {
   render(){
     return(
       <Item className='itemActive'>
-        <Item.Image src={this.getLogoUrl()} alt="company_logo" onClick={this.setActiveCompany}/>
+        <div className="companyImageContainer">
+          <Item.Image src={this.getLogoUrl()} alt="" onClick={this.setActiveCompany}/>
+        </div>
       <Item.Content>
         <Item.Header >{this.props.company.name}</Item.Header>
         <Item.Meta>
