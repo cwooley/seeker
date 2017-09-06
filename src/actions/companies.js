@@ -10,7 +10,7 @@ export function setActiveCompany (company) {
 export function deleteCompany (id){
   let request = axios({
     method: 'delete',
-    url: `http://localhost:3000/api/v1/companies/${id}`
+    url: `https://seeker-api.herokuapp.com/api/v1/companies/${id}`
   })
   return {
     type: "DELETE_COMPANY",
@@ -25,7 +25,7 @@ export function makeNewCompany (companyName) {
   form.append('user_id', localStorage.jwt)
   let request = axios({
     method: 'post',
-    url: 'http://localhost:3000/api/v1/companies',
+    url: 'https://seeker-api.herokuapp.com/api/v1/companies',
     data:form
   })
   return {
@@ -44,7 +44,7 @@ export function addContact (contactInfo) {
   form.append('contact[company_id]', contactInfo.company_id)
   let request = axios({
     method: 'post',
-    url: 'http://localhost:3000/api/v1/contacts',
+    url: 'https://seeker-api.herokuapp.com/api/v1/contacts',
     data:form
   })
   return {
@@ -56,7 +56,7 @@ export function addContact (contactInfo) {
 export function deleteContact(id){
   let request = axios({
     method: 'delete',
-    url: `http://localhost:3000/api/v1/contacts/${id}`
+    url: `https://seeker-api.herokuapp.com/api/v1/contacts/${id}`
   })
   return {
     type: "DELETE_CONTACT",
@@ -73,7 +73,7 @@ export function addInteraction (interactionInfo){
   form.append('interaction[company_id]', interactionInfo.company_id)
   let request = axios({
     method: 'post',
-    url: 'http://localhost:3000/api/v1/interactions',
+    url: 'https://seeker-api.herokuapp.com/api/v1/interactions',
     data:form
   })
   return {
@@ -85,7 +85,7 @@ export function addInteraction (interactionInfo){
 export function deleteInteraction(id){
   let request = axios({
     method: 'delete',
-    url: `http://localhost:3000/api/v1/interactions/${id}`
+    url: `https://seeker-api.herokuapp.com/api/v1/interactions/${id}`
   })
   return {
     type: "DELETE_INTERACTION",

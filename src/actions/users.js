@@ -9,7 +9,7 @@ export function fetchJWT(userData){
   form.append('password', userData.password)
   let request = axios({
   	method: 'post',
-  	url: 'http://localhost:3000/api/v1/login',
+  	url: 'https://seeker-api.herokuapp.com/api/v1/login',
   	data: form
   })
   return {
@@ -27,7 +27,7 @@ export function editUser(userData){
   form.append('user[profile_image_url]', userData.profileImage)
   let request = axios({
     method: 'put',
-    url: `http://localhost:3000/api/v1/users/${userData.id}`,
+    url: `https://seeker-api.herokuapp.com/api/v1/users/${userData.id}`,
     data: form
   })
   return {
@@ -46,7 +46,7 @@ export function createNewUser(userData){
   form.append('user[profile_image_url]', userData.profileImage)
   let request = axios({
     method: 'post',
-    url: 'http://localhost:3000/api/v1/users',
+    url: 'https://seeker-api.herokuapp.com/api/v1/users',
     data: form
   })
   return {
@@ -56,7 +56,7 @@ export function createNewUser(userData){
 }
 
 export function fetchUserData(){
-  let url = 'http://localhost:3000/api/v1/users/1234567'
+  let url = 'https://seeker-api.herokuapp.com/api/v1/users/1234567'
 
   let request = axios({
   	method: 'get',
