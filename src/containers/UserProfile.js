@@ -73,8 +73,8 @@ class UserProfile extends Component{
             <Item.Image size='small' src={this.props.user.profile_image_url} />
             <Item.Content>
               <h1>{this.props.user.username}</h1>
-              <Item.Description className="whiteText">
-                <p className="whiteText">{this.props.user.email}</p>
+              <Item.Description >
+                <p>{this.props.user.email}</p>
               </Item.Description>
             <br />
               <Link to={`/edit`}><Button content='Edit' color="purple" icon='edit' labelPosition='left' onClick={this.editBtnClicked}/></Link>
@@ -84,10 +84,10 @@ class UserProfile extends Component{
         <h3>Daily Application Goal: 5 </h3>
         <Progress percent={this.getDailyProgressPercent()} color='green' indicating />
         <h3>User Stats:</h3>
-          <Statistic.Group  color='blue'>
+          <Statistic.Group >
             <Statistic label='Companies' value={this.getNumCompanies()} />
             <Statistic label='Applications' value={this.getNumApplications()} />
-            <Statistic label='Interviews' value={this.getNumInterviews()} className="whiteText"/>
+            <Statistic label='Interviews' value={this.getNumInterviews()} />
           </Statistic.Group>
       </div>
     )
