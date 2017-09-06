@@ -10,7 +10,7 @@ export default function (state = {user: {companies: []}}, action){
       console.log('hit  block and setting state with this data', action.payload.data)
       if(action.payload.data[0]){
         localStorage.setItem('jwt', action.payload.data[0].jwt)
-        window.location = 'http://localhost:3001/main'
+        window.location = 'https://seek-r.herokuapp.com/main'
         let userObj = JSON.parse(action.payload.data[1])
         return userObj
       }
@@ -39,13 +39,13 @@ export default function (state = {user: {companies: []}}, action){
       console.log("STATE AFTER CREATED USER", newState)
         if(action.payload.data[0].jwt){
           localStorage.setItem('jwt', action.payload.data[0].jwt)
-          window.location = 'http://localhost:3001/main'
+          window.location = 'https://seek-r.herokuapp.com/main'
         }
       console.log("USER AND JWT UPON SIGNUP IS", action.payload.data)
       return action.payload.data[1]
 
     case "EDIT_USER":
-    window.location = 'http://localhost:3001/profile'
+    window.location = 'https://seek-r.herokuapp.com/profile'
     return action.payload.data
 
     case "ADD_INTERACTION":

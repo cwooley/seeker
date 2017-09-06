@@ -9,7 +9,7 @@ export default class NavBar extends Component {
 
   logoutClicked = () => {
     localStorage.clear();
-    window.location = 'localhost:3001/'
+    window.location = 'https://seek-r.herokuapp.com/'
   }
 
 

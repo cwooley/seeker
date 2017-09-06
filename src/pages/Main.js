@@ -11,7 +11,7 @@ class Main extends Component {
 
   componentDidMount(){
     if (!localStorage.jwt){
-      window.location = 'http://localhost:3001/'
+      window.location = 'https://seek-r.herokuapp.com/'
     } else if (!this.props.user) {
       //get user data and put it into redux store... also set up redux you lazy sack of shit!
       this.props.fetchUserData()
