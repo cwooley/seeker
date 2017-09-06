@@ -53,6 +53,12 @@ html, body {
 
 .userProfile{
   padding-top: 40px;
+  color: #FFFFFF!important;
+
+}
+
+.whiteText{
+  color: #FFFFFF!important;
 }
 
 .editForm{
@@ -103,4 +109,8 @@ html, body {
 
 .companyContents{
   padding-left: 10px!important;
+}
+
+.ui.statistic>.label, .ui.statistics .statistic>.label {
+    color: #FFFFFF!important;
 }

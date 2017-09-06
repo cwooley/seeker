@@ -16,9 +16,9 @@ class ActiveCompany extends Component {
   }
 
   makeInteractionFeed(){
-    if (this.props.activeCompanyId){
+    console.log('making interactions', this.props.activeCompanyId)
       return this.activeCompany().interactions.map((interaction, index) => <Interaction interaction={interaction} key={index} /> )
-    }
+
   }
 
   getLogoUrl(){
@@ -62,7 +62,7 @@ class ActiveCompany extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width="16" >
-              <ActionPane />
+              <ActionPane activeCompany={this.activeCompany()}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Grid, Input, Menu, Segment, Button, Dropdown, Message } from 'semantic-ui-react'
+import { Grid, Input, Menu, Segment, Button, Dropdown, Message, Transition } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchJWT, fetchUserData, createNewUser } from '../actions/users.js'
@@ -14,7 +14,8 @@ class Login extends Component {
     profileImage: '',
     dailyGoal: '5',
     errors: false,
-    loginFail: false
+    loginFail: false,
+    shaker: true
   }
 
   componentDidMount(){
@@ -76,7 +77,9 @@ class Login extends Component {
   }
 
   loginErrors = () => {
-    if (this.props.loginFail) return <Message error header='Username or password incorrect'/>
+    if (this.props.loginFail) {
+      return <Message error header='Username or password incorrect'/>
+    }
   }
 
   dailyGoalChanged = (event) => {
@@ -94,13 +97,19 @@ class Login extends Component {
   fillInTabs(){
     if (this.state.activeItem === 'Login'){
       return (
-        <div>
-          <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
-          <br />
-          <Input onChange={this.passwordChanged}  fluid label='Password' type="password" value={this.state.password} placeholder='password' />
-          <br />
-            <center><Button color='purple' onClick={this.loginBtnClicked.bind(this)} >Login</Button></center>
-        </div>
+
+          <div>
+            <Transition animation='shake' duration={400} visible={!this.props.loginFail}>
+              <div>
+                <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
+                <br />
+                <Input onChange={this.passwordChanged}  fluid label='Password' type="password" value={this.state.password} placeholder='password' />
+                <br />
+                  <center><Button color='purple' onClick={this.loginBtnClicked.bind(this)} >Login</Button></center>
+              </div>
+            </Transition>
+          </div>
+
       )
     } else if (this.state.activeItem === 'SignUp'){
       return (
@@ -113,7 +122,8 @@ class Login extends Component {
           <br />
           <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
           <br />
-          <Input onChange={this.dailyGoalChanged} error={this.dailyGoalError()} fluid label='Profile Image Url' value={this.state.dailyGoal} placeholder='1 - 20' />
+          <Input label={`Daily App Goal: ${this.state.dailyGoal}`} min={1} max={20} onChange={this.dailyGoalChanged} step={1} type='range' value={this.state.dailyGoal} />
+          <br />
           <br />
             <center><Button color='purple' onClick={this.signUpBtnClicked.bind(this)} >Sign Up</Button></center>
         </div>

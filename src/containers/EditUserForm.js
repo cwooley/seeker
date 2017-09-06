@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUserData, editUser } from '../actions/users.js'
-import {Input, Button, Form, Message } from 'semantic-ui-react';''
+import {Input, Button, Form, Message, Transition } from 'semantic-ui-react';''
 
 
 
@@ -81,7 +81,7 @@ class EditUserForm extends Component{
   dailyGoalChanged = (event) => {
     this.setState({dailyGoal: event.target.value})
   }
-  
+
   dailyGoalError = () => {
     return !(parseInt(this.state.dailyGoal, 10) > 0 && parseInt(this.state.dailyGoal, 10) < 21)
   }
@@ -108,19 +108,22 @@ class EditUserForm extends Component{
     return (
       <div className="editForm">
         <div className="errorsContainer">{this.displayError()}</div>
-        <Form>
-          <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
-          <br />
-          <Input  onChange={this.passwordChanged} fluid label='Password' type='password' value={this.state.password} placeholder='password' />
-          <br />
-          <Input onChange={this.emailChanged} fluid label='Email' value={this.state.email} placeholder='email' />
-          <br />
-          <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
-          <br />
-          <Input onChange={this.dailyGoalChanged} error={this.dailyGoalError()} fluid label='Profile Image Url' value={this.state.dailyGoal} placeholder='1 - 20' />
-          <br />
-            <center><Button color='purple' onClick={this.editBtnClicked.bind(this)} >Edit Profile</Button></center>
-        </Form>
+        <Transition animation='shake' duration={400} visible={!this.state.errors}>
+          <Form>
+            <Input onChange={this.usernameChanged} fluid label='Username' value={this.state.username} placeholder='username' />
+            <br />
+            <Input  onChange={this.passwordChanged} fluid label='Password' type='password' value={this.state.password} placeholder='password' />
+            <br />
+            <Input onChange={this.emailChanged} fluid label='Email' value={this.state.email} placeholder='email' />
+            <br />
+            <Input onChange={this.profileImageChanged} fluid label='Profile Image Url' value={this.state.profileImage} placeholder='profileImage' />
+            <br />
+            <Input label={`Daily App Goal: ${this.state.dailyGoal}`} min={1} max={20} onChange={this.dailyGoalChanged} step={1} type='range' value={this.state.dailyGoal} />
+            <br />
+            <br />
+              <center><Button color='purple' onClick={this.editBtnClicked.bind(this)} >Edit Profile</Button></center>
+          </Form>
+        </Transition>
       </div>
     )
   }
