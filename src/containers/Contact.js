@@ -24,7 +24,7 @@ class Contact extends Component {
           <Image avatar src={gravatarURL} />
         <List.Content>
           <List.Header>{this.props.contact.name}</List.Header>
-          <List.Description>Email: {this.props.contact.email}</List.Description>
+          <List.Description>Email: <a href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${this.props.contact.email}&tf=1`} target="_blank" >{this.props.contact.email}</a></List.Description>
           <List.Description>Phone: {this.props.contact.phone_number}</List.Description>
         </List.Content>
       </List.Item>

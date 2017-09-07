@@ -25,6 +25,7 @@ export function editUser(userData){
   form.append('user[password]', userData.password)
   form.append('user[email]', userData.email)
   form.append('user[profile_image_url]', userData.profileImage)
+  form.append('user[app_goal]', userData.dailyGoal)
   let request = axios({
     method: 'put',
     url: `https://seeker-api.herokuapp.com/api/v1/users/${userData.id}`,
@@ -44,6 +45,7 @@ export function createNewUser(userData){
   form.append('user[password]', userData.password)
   form.append('user[email]', userData.email)
   form.append('user[profile_image_url]', userData.profileImage)
+  form.append('user[app_goal]', userData.dailyGoal)
   let request = axios({
     method: 'post',
     url: 'https://seeker-api.herokuapp.com/api/v1/users',

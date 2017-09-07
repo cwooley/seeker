@@ -7,6 +7,8 @@ import CompaniesList from '../containers/CompaniesList';
 import ActiveCompany from '../containers/ActiveCompany';
 import NavBar from '../components/NavBar';
 
+
+
 class Main extends Component {
 
   componentDidMount(){
@@ -22,7 +24,7 @@ class Main extends Component {
   render() {
     console.log('STATE:', this.props.state)
     return (
-      <div >
+      <div>
         <Grid  >
           <Grid.Row>
             <Grid.Column width="2" color="blue">

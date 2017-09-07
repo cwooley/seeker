@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addContact, addInteraction } from '../actions/companies.js'
 import { Input, Menu, Segment, Button, TextArea, Radio } from 'semantic-ui-react'
-import '../app.css'
+
 
 class ActionPane extends Component{
   state = { activeItem: 'Contacts',

@@ -9,7 +9,7 @@ export default class Routes extends Component{
    render(){
      return(
        <Router>
-         <div>
+         <div id="main">
            <Route exact path={'/'} render={() => (
               //Check for JWT and render Main or login
                 !!localStorage.jwt ? (
