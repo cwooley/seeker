@@ -45,7 +45,7 @@ export function createNewUser(userData){
   form.append('user[password]', userData.password)
   form.append('user[email]', userData.email)
   form.append('user[profile_image_url]', userData.profileImage)
-  form.append('user[app_goal]', userData.dailyGoal)
+  form.append('user[sapp_goal]', userData.dailyGoal)
   let request = axios({
     method: 'post',
     url: 'https://seeker-api.herokuapp.com/api/v1/users',

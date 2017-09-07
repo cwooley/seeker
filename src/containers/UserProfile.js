@@ -59,7 +59,7 @@ class UserProfile extends Component{
         })
       })
       // Eventually switch in DailyAppGoal for 5 here
-      return counter/5 * 100
+      return counter/this.props.user.app_goal * 100
     }
 
   }
@@ -81,7 +81,7 @@ class UserProfile extends Component{
             </Item.Content>
           </Item>
         </Item.Group>
-        <h3>Daily Application Goal: 5 </h3>
+        <h3>Daily Application Goal:  </h3>
         <Progress percent={this.getDailyProgressPercent()} color='green' indicating />
         <h3>User Stats:</h3>
           <Statistic.Group >
