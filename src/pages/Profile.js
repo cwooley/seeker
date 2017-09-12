@@ -29,9 +29,11 @@ export default class Login extends Component {
             </Grid.Column>
 
             <Grid.Column width='12' color="white" className="profileColumns">
-              <div className='profileContainer'>
-                <UserProfile />
-              </div>
+              <center>
+                <div className='profileContainer'>
+                  <UserProfile />
+                </div>
+              </center>
             </Grid.Column>
 
             <Grid.Column width='2' floated='right' className='noPadding' className="profileOuterColumns" >

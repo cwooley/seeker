@@ -139,15 +139,19 @@ class Login extends Component {
       <Grid className="myGrid">
         <Grid.Column width='2' floated='left' color='blue' >
         </Grid.Column>
-        <Grid.Column width='4'>
-          <div className="errorsContainer">{this.displayError()}{this.loginErrors()}</div>
-          <Menu attached='top' tabular className="loginForm">
-            <Menu.Item name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />
-            <Menu.Item name='SignUp' active={activeItem === 'SignUp'} onClick={this.handleItemClick} />
-          </Menu>
-          <Segment attached='bottom'>
-            {this.fillInTabs()}
-          </Segment>
+        <Grid.Column width='12' color="white">
+          <center>
+          <div className="profileContainer">
+            <div className="errorsContainer">{this.displayError()}{this.loginErrors()}</div>
+            <Menu attached='top' tabular className="loginForm">
+              <Menu.Item name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />
+              <Menu.Item name='SignUp' active={activeItem === 'SignUp'} onClick={this.handleItemClick} />
+            </Menu>
+            <Segment attached='bottom'>
+              {this.fillInTabs()}
+            </Segment>
+          </div>
+          </center>
         </Grid.Column>
         <Grid.Column width='2' floated='right' color='blue'>
         </Grid.Column>
