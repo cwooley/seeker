@@ -15,24 +15,26 @@ export default class Login extends Component {
     return (
       <div>
         <Grid >
-          <Grid.Row>
-            <Grid.Column width="2" color="blue">
+          <Grid.Row >
+            <Grid.Column width="2" className='noPadding'>
             </Grid.Column>
             <Grid.Column width="12" color="black">
               <NavBar />
             </Grid.Column>
-            <Grid.Column width="2" color="blue">
+            <Grid.Column width="2" className='noPadding'>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width='2' floated='left'  color="blue" className="profileColumns" >
+          <Grid.Row  >
+            <Grid.Column width='2' floated='left'  className='noPadding' className="profileOuterColumns" >
             </Grid.Column>
 
-            <Grid.Column width='4' className="profileColumns">
-              <UserProfile />
+            <Grid.Column width='12' color="white" className="profileColumns">
+              <div className='profileContainer'>
+                <UserProfile />
+              </div>
             </Grid.Column>
 
-            <Grid.Column width='2' floated='right' color="blue" className="profileColumns" >
+            <Grid.Column width='2' floated='right' className='noPadding' className="profileOuterColumns" >
             </Grid.Column>
           </Grid.Row>
         </Grid>

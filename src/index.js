@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import Routes from './Routes';
 import reducers from './reducers';
-import './app.css'
 import 'semantic-ui-css/semantic.min.css';
+import './app.css'
+
 
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);

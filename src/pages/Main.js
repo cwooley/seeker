@@ -27,24 +27,24 @@ class Main extends Component {
       <div>
         <Grid  >
           <Grid.Row>
-            <Grid.Column width="2" color="blue">
+            <Grid.Column width="2" >
             </Grid.Column>
             <Grid.Column width="12" color="black">
               <NavBar />
             </Grid.Column>
-            <Grid.Column width="2" color="blue">
+            <Grid.Column width="2" >
             </Grid.Column>
           </Grid.Row>
           <Grid.Row >
-            <Grid.Column width="2" color="blue">
+            <Grid.Column width="2">
             </Grid.Column>
-            <Grid.Column width="4" >
+            <Grid.Column width="4" color="white">
               <CompaniesList />
             </Grid.Column>
-            <Grid.Column width="8" >
+            <Grid.Column width="8" color="white">
               <ActiveCompany />
             </Grid.Column>
-            <Grid.Column width="2" color="blue">
+            <Grid.Column width="2" >
             </Grid.Column>
           </Grid.Row>
         </Grid>
