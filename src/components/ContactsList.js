@@ -9,7 +9,6 @@ export default class ContactsList extends Component {
     }
   }
   render(){
-    console.log('Contact List Props', this.props)
     return (
       <List className="activeCompanyFeed vertDividerLeft" divided verticalAlign='middle'>
         {this.makeContacts()}

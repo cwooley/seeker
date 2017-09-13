@@ -16,19 +16,16 @@ class ActiveCompany extends Component {
   }
 
   makeInteractionFeed(){
-    console.log('making interactions', this.props.activeCompanyId)
       return this.activeCompany().interactions.map((interaction, index) => <Interaction interaction={interaction} key={index} /> )
 
   }
 
   getLogoUrl(){
     //TODO make fetch request top clearbit for logo, and if it 404's then feed in a link to a default image
-    console.log(this.activeCompany().name)
     return `http://logo.clearbit.com/${this.activeCompany().name}.com?size=200`
   }
 
   render(){
-    console.log('props', this.props)
     return (
       <div className="activeCompanyContainer">
         { this.activeCompany() &&
@@ -77,8 +74,6 @@ class ActiveCompany extends Component {
 }
 
 let mapStateToProps = (state) => {
-  console.log('ACTIVECOMPANY', state.company)
-  console.log('companies', state.user.companies)
   return ({activeCompanyId: state.company.id, companies: state.user.companies})
 }
 
