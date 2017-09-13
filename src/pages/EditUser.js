@@ -28,7 +28,7 @@ export default class Login extends Component {
           <Grid.Column width='2' floated='left' color='blue' >
 
           </Grid.Column>
-          <Grid.Column className="myGrid" width='4'>
+          <Grid.Column className="myGrid" width='12' color='white'>
             <EditUserForm />
           </Grid.Column>
           <Grid.Column width='2' floated='right' color='blue'>

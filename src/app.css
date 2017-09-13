@@ -40,6 +40,9 @@ button {
   margin-top: 10px;
 }
 
+.vertDividerLeft{
+  border-left: 1px!important;
+}
 .activeCompany{
   height: 200px;
   width: 100%;
@@ -60,6 +63,13 @@ button {
   height: 870px;
   overflow-y: auto;
   margin-top: 30px!important;
+  padding-right: 10px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #727272;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
 }
 
 .activeCompanyContainer{
