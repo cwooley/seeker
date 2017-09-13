@@ -7,7 +7,7 @@ import { Input, Menu, Segment, Button, TextArea, Radio } from 'semantic-ui-react
 
 class ActionPane extends Component{
   state = { activeItem: 'Contacts',
-            interactionType: '',
+            interactionType: 'Application',
             interactionStatus: '',
             contactName: '',
             contactPhone: '',

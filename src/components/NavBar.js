@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default class NavBar extends Component {
   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name }) 
 
   logoutClicked = () => {
     localStorage.clear();
