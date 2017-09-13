@@ -31,8 +31,10 @@ export default function (state = {user: {companies: []}}, action){
 
     case "DELETE_COMPANY":
       newState = {...state}
-      newCompanies = state.companies.filter(company => company.id != action.payload.data.id)
-      newState.companies = newCompanies
+      if (action.payload.data.id){
+        newCompanies = state.companies.filter(company => company.id != action.payload.data.id)
+        newState.companies = newCompanies
+      }
       return newState
 
     case "CREATE_NEW_USER":

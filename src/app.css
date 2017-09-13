@@ -36,9 +36,8 @@ button {
   height: 1000px;
 }
 
-.actionPane{
-  height: 350px;
-  min-height: 350px;
+.actionsPane{
+  margin-top: 10px;
 }
 
 .activeCompany{

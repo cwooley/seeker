@@ -52,11 +52,13 @@ class ActiveCompany extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width="8" >
+              <h3 className="activeCompanyHeader" >Interaction History </h3>
               <Feed className="activeCompanyFeed">
                 {this.makeInteractionFeed()}
               </Feed>
             </Grid.Column>
             <Grid.Column width="8" >
+              <h3>Contacts </h3>
               <ContactsList contacts={this.activeCompany().contacts}/>
             </Grid.Column>
           </Grid.Row>

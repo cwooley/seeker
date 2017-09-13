@@ -34,6 +34,7 @@ class CompanyList extends Component {
   render(){
     return(
       <div className="companiesList">
+        <h3>Companies </h3>
         <Input placeholder='Search...' value={this.state.term} action={{ onClick: this.newCompanyClicked, color: 'purple', labelPosition: 'left', icon: 'sticky note outline', content: 'New' }} onChange={this.searchChanged} fluid />
         <Item.Group divided >
           {this.makeCompanies()}

@@ -23,6 +23,7 @@ class Company extends Component {
         return 'never'
       }
       let lastContactDate = Date.parse(this.props.company.interactions[length-1].created_at)
+      console.log("last contact date", lastContactDate)
       return <ReactTimeAgo locale="en-GB" >{lastContactDate}</ReactTimeAgo>
     }
   }
