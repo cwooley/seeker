@@ -72,6 +72,15 @@ button {
   border-bottom: 0px;
 }
 
+.rightBorder{
+  padding-right: 10px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #727272;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+}
 .activeCompanyContainer{
   height: 850px;
   min-height:850px;

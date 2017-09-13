@@ -24,13 +24,15 @@ export default class Login extends Component {
             <Grid.Column width="2" color="blue">
             </Grid.Column>
           </Grid.Row>
-
-          <Grid.Column width='2' floated='left' color='blue' >
-
-          </Grid.Column>
-          <Grid.Column className="myGrid" width='12' color='white'>
-            <EditUserForm />
-          </Grid.Column>
+            <Grid.Column width='2' floated='left' color='blue' >
+            </Grid.Column>
+            <Grid.Column className="myGrid" width='12' color='white'>
+              <center>
+                <div className='profileContainer'>
+                  <EditUserForm />
+                </div>
+              </center>
+            </Grid.Column>
           <Grid.Column width='2' floated='right' color='blue'>
 
           </Grid.Column>
